@@ -1,0 +1,5 @@
+# robots.txt — info.apolo.education
+User-agent: *
+Allow: /
+
+Sitemap: https://info.apolo.education/sitemap.xml

@@ -1,0 +1,21 @@
+{
+  "name": "Apolo Education",
+  "short_name": "Apolo",
+  "description": "Plataforma educativa integral para la gestión académica institucional.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050B14",
+  "theme_color": "#050B14",
+  "icons": [
+    {
+      "src": "/assets/img/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/img/APOLO-V3-05.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
