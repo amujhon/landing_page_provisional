@@ -342,6 +342,11 @@ body.light-mode .navbar .nav-link { color: rgba(255, 255, 255, 0.7); }
   align-items: center;
   position: relative;
   overflow: hidden;
+  background: var(--bg-deep);
+}
+
+body.light-mode .hero {
+  background: var(--bg-body);
 }
 
 .hero::before {
@@ -413,7 +418,7 @@ body.light-mode .navbar .nav-link { color: rgba(255, 255, 255, 0.7); }
 
 .hero-device-visual {
   width: 100%;
-  max-width: 600px;
+  max-width: 100%;
   height: auto;
   object-fit: contain;
   transform: none;
@@ -458,6 +463,13 @@ body.light-mode .navbar .nav-link { color: rgba(255, 255, 255, 0.7); }
 /* ============================================================
    10. FEATURE TABS (Roles)
    ============================================================ */
+#funcionalidades {
+  background: var(--bg-deep);
+}
+body.light-mode #funcionalidades {
+  background: var(--bg-body);
+}
+
 .features-showcase {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -468,6 +480,7 @@ body.light-mode .navbar .nav-link { color: rgba(255, 255, 255, 0.7); }
 .tabs-container {
   min-width: 0;
   padding: 0.75rem 0;
+  margin-top: 5rem;
 }
 
 .feature-text {
