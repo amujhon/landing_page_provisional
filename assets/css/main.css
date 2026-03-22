@@ -140,8 +140,42 @@ img, svg, video {
   padding-inline: 1.5rem;
 }
 
+.home-flow {
+  position: relative;
+}
+
+.screen-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-block-size: 100svh;
+}
+
+@supports (min-height: 100dvh) {
+  .screen-section {
+    min-block-size: 100dvh;
+  }
+}
+
+.screen-section > .container {
+  width: 100%;
+}
+
 .section-padding {
   padding-block: clamp(3rem, 5vw, 5rem);
+}
+
+.section-kicker {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(12, 76, 168, 0.08);
+  color: var(--apolo-blue);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .text-gradient {
@@ -284,6 +318,12 @@ body.light-mode .btn-outline:hover {
   width: auto;
 }
 
+.logo-wordmark {
+  height: 34px;
+  width: auto;
+  object-fit: contain;
+}
+
 /* Nav links */
 .nav-menu {
   display: flex;
@@ -337,7 +377,6 @@ body.light-mode .navbar .nav-link { color: rgba(255, 255, 255, 0.7); }
 .hero {
   padding-top: calc(var(--header-h) + 2rem);
   padding-bottom: 4rem;
-  min-height: auto;
   display: flex;
   align-items: center;
   position: relative;
@@ -362,7 +401,7 @@ body.light-mode .hero {
 
 .hero .container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
   gap: 4rem;
   align-items: center;
   max-width: var(--container-max);
@@ -418,7 +457,7 @@ body.light-mode .hero {
 
 .hero-device-visual {
   width: 100%;
-  max-width: 100%;
+  max-width: 112%;
   height: auto;
   object-fit: contain;
   transform: none;
@@ -441,6 +480,16 @@ body.light-mode .hero {
   text-align: center;
   margin-bottom: 1.5rem;
 }
+
+.section-title-left {
+  text-align: left;
+}
+
+.section-title-left p {
+  margin-inline: 0;
+  max-width: none;
+}
+
 .section-title h2 {
   font-size: clamp(1.6rem, 3.5vw, 2.2rem);
   font-weight: 700;
@@ -463,10 +512,10 @@ body.light-mode .hero {
 /* ============================================================
    10. FEATURE TABS (Roles)
    ============================================================ */
-#funcionalidades {
+#roles {
   background: var(--bg-deep);
 }
-body.light-mode #funcionalidades {
+body.light-mode #roles {
   background: var(--bg-body);
 }
 
@@ -474,13 +523,15 @@ body.light-mode #funcionalidades {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
-  align-items: stretch;
+  align-items: center;
 }
 
 .tabs-container {
   min-width: 0;
   padding: 0.75rem 0;
-  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .feature-text {
@@ -534,7 +585,7 @@ body.light-mode #funcionalidades {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  min-height: min(60vh, 680px);
 }
 
 .roles-floating-img {
@@ -557,7 +608,7 @@ body.light-mode #funcionalidades {
 #modulos {
   position: relative;
   background-image: linear-gradient(rgba(231, 242, 247, 0.9), rgba(231, 242, 247, 0.94)),
-                    url('/assets/img/FondoWebApolo1.png');
+                    url('../img/FondoWebApolo1.webp');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -809,13 +860,19 @@ body.light-mode .pricing-value { border-left-color: rgba(10, 46, 74, 0.1); }
 .rector-section {
   background: var(--bg-surface);
 }
+
+.screen-section--leadership .container,
+.screen-section--modules .container {
+  width: 100%;
+}
+
 .rector-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
   align-items: center;
 }
-.rector-text .efiap-badge {
+.rector-text .section-kicker {
   text-align: left;
 }
 .rector-text h2 {
@@ -1090,12 +1147,94 @@ body.light-mode .pricing-value { border-left-color: rgba(10, 46, 74, 0.1); }
 }
 
 /* ============================================================
+   15c. CLOSING SECTION
+   ============================================================ */
+.screen-section--closing {
+  background:
+    radial-gradient(circle at top right, rgba(129, 215, 255, 0.35), transparent 28%),
+    linear-gradient(180deg, rgba(231, 242, 247, 0.92) 0%, rgba(255, 255, 255, 0.98) 100%);
+}
+
+.closing-layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(2rem, 4vw, 3rem);
+}
+
+.closing-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.75rem;
+  align-items: stretch;
+}
+
+.closing-panel {
+  background: var(--bg-surface);
+  border: var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 2.5vw, 2.25rem);
+  box-shadow: 0 12px 36px rgba(10, 46, 74, 0.08);
+}
+
+.closing-panel--tech {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.closing-panel--tech .tech-grid {
+  margin-top: 1.5rem;
+}
+
+.closing-panel--cta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  color: var(--text-primary);
+}
+
+.closing-panel--cta .section-kicker {
+  background: rgba(12, 76, 168, 0.08);
+  color: var(--apolo-blue);
+}
+
+.closing-panel--cta .section-title h2,
+.closing-panel--cta .section-title p {
+  color: var(--text-primary);
+}
+
+.closing-panel--cta .section-title p {
+  opacity: 1;
+}
+
+.hero-buttons-left {
+  justify-content: center;
+}
+
+/* ============================================================
    16. FOOTER
    ============================================================ */
 footer {
   background: #0A2E4A;
   padding-top: 4rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.site-footer {
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.footer-description {
+  color: rgba(255, 255, 255, 0.72);
+  margin-top: 1rem;
+  font-size: 0.95rem;
 }
 
 .footer-top {
@@ -1178,6 +1317,9 @@ footer {
 
 /* Tablet */
 @media (max-width: 992px) {
+  .screen-section {
+    align-items: stretch;
+  }
   .hero {
     padding-top: calc(var(--header-h) + 2rem);
     padding-bottom: 3rem;
@@ -1198,7 +1340,7 @@ footer {
   }
   .hero-device-visual {
     width: 100%;
-    max-width: 500px;
+    max-width: 560px;
     filter: drop-shadow(0 10px 24px rgba(10, 46, 74, 0.12));
   }
   .features-showcase { grid-template-columns: 1fr; gap: 2rem; }
@@ -1215,8 +1357,9 @@ footer {
   .modules-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-top { grid-template-columns: 1fr 1fr; }
   .rector-content { grid-template-columns: 1fr; text-align: center; }
-  .rector-text .efiap-badge { text-align: center; }
+  .rector-text .section-kicker { text-align: center; }
   .rector-image { order: -1; }
+  .closing-grid { grid-template-columns: 1fr; }
   .legal-summary,
   .legal-crosslinks,
   .legal-layout {
@@ -1234,7 +1377,19 @@ footer {
   }
   .hero-device-visual {
     width: 100%;
-    max-width: 380px;
+    max-width: 430px;
+  }
+
+  .section-title-left {
+    text-align: center;
+  }
+
+  .section-title-left p {
+    margin-inline: auto;
+  }
+
+  .hero-buttons-left {
+    justify-content: center;
   }
 
   .nav-tabs {
